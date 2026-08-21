@@ -183,12 +183,24 @@ let scale = 1, tx = 0, ty = 0, dragging = false, sx = 0, sy = 0, natW = 0, natH 
    الصفحة كلها مصممة بعرض 1180 بكسل. على شاشة أضيق (جوال)، هذا يصغّر
    الصفحة كلها بنفس النسبة — نفس التصميم بس أصغر — بدل ما يتقطع أو يتلخبط. */
 let PAGE_ZOOM = 1;
+const MOBILE_MAX = 900;   /* تحت هذا العرض يشتغل تخطيط الجوال في styles.css */
 function fitViewport(){
   const el = document.documentElement;
   el.style.zoom = '';
   const w = el.clientWidth || 1180;
-  PAGE_ZOOM = Math.min(1, w / 1180);
-  el.style.zoom = PAGE_ZOOM === 1 ? '' : PAGE_ZOOM;
+
+  /* على الجوال لا نصغّر شيئًا: التخطيط نفسه يعيد ترتيب نفسه بأحجام مقروءة.
+     التصغير النسبي يبقى فقط للشاشات المتوسطة (تابلت/نافذة مصغّرة) حتى
+     يظل تصميم اللابتوب كما هو بالضبط بدل أن ينكسر.
+     On phones we don't scale at all - the layout reflows at readable sizes.
+     Proportional shrinking stays only for mid-size windows so the laptop
+     design is preserved exactly rather than breaking. */
+  if (w <= MOBILE_MAX){
+    PAGE_ZOOM = 1;
+  } else {
+    PAGE_ZOOM = Math.min(1, w / 1180);
+    if (PAGE_ZOOM !== 1) el.style.zoom = PAGE_ZOOM;
+  }
   fitPanel();
 }
 /* Calculates the exact pixel size the pop-up window should be, based on the

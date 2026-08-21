@@ -806,3 +806,145 @@ html[lang="ar"] .pcard-kind{letter-spacing:0;text-transform:none;font-size:11.5p
    (light theme uses a darker shade of each project's colour for contrast) */
 .pcard{--pc:var(--pc-dark);}
 html[data-theme="light"] .pcard{--pc:var(--pc-light);}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   تخطيط الجوال (Mobile layout) — يعمل فقط تحت 900 بكسل.
+   كل ما فوق ذلك يبقى تصميم اللابتوب كما هو حرفيًا: لا شيء هنا يؤثر عليه.
+   Everything below only applies under 900px, so the laptop design above
+   this breakpoint is untouched.
+
+   المبدأ: عمود واحد، خط بحجم مريح للقراءة، وأزرار مساحتها تكفي للإصبع
+   (44 بكسل هو الحد الموصى به من إرشادات الوصول).
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width:900px){
+
+  /* الصفحة كانت مقفولة على 1180 — نفكّها لتأخذ عرض الجهاز.
+     الثلاثة (body/nav/topbar) لها min-width:1180px في تصميم اللابتوب،
+     ولا بد من إلغائها جميعًا وإلا فاض المحتوى عن يمين الشاشة. */
+  html{zoom:1!important;}
+  body,nav,.topbar{min-width:0!important;max-width:100%;}
+  body{overflow-x:hidden;font-size:16px;line-height:1.65;}
+  .wrap{max-width:100%;padding:56px 20px;}
+  /* أي عنصر يتجاوز العرض يُقصّ بدل أن يدفع الصفحة */
+  .hero-grid,.vision-inner,footer,.footer-row{max-width:100%;}
+  img,svg,canvas{max-width:100%;}
+
+  /* ── الشريط العلوي والساعة ── */
+  .topbar{min-width:0;height:auto;padding:6px 16px;justify-content:center;}
+  .clock{gap:8px;flex-wrap:wrap;justify-content:center;}
+  .clock-loc,.clock-date{font-size:11px;}
+  .clock-date em{display:none;}          /* التاريخ الهجري يزحم الشريط الضيق */
+  .digits{font-size:13px;}
+  .ring{width:20px;height:20px;}
+
+  /* ── شريط التنقّل: الروابط تنزل سطرًا ثانيًا وتتمرّر أفقيًا ── */
+  nav{min-width:0;flex-wrap:wrap;gap:8px;padding:10px 16px;top:32px;}
+  .brand-name{font-size:14px;}
+  .nav-links{order:3;width:100%;overflow-x:auto;gap:2px;padding-bottom:2px;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{font-size:13.5px;padding:8px 11px;}
+  .nav-actions{margin-inline-start:auto;gap:8px;}
+  .icon-btn{width:42px;height:42px;}     /* مساحة لمس مريحة */
+  .peek{display:none!important;}         /* المعاينة بالتحويم لا معنى لها باللمس */
+
+  /* ── الواجهة: الصورة فوق والنص تحت ── */
+  #top{min-height:auto;padding:150px 20px 60px;}
+  .hero-grid{grid-template-columns:1fr;gap:32px;text-align:center;}
+  .photo-wrap{order:-1;}                 /* الصورة أولًا على الجوال */
+  .photo-ring,.photo-ring img{width:170px;height:170px;}
+  .hero h1{font-size:34px;line-height:1.25;}
+  html[lang="ar"] .hero h1{font-size:31px;}
+  .hero-role{font-size:17px;}
+  .hero-bio{font-size:15.5px;max-width:none;margin-inline:auto;}
+  .hero-cta{justify-content:center;}
+  .hero-cta .btn{padding:13px 22px;font-size:15px;}
+  .blob-1,.blob-2,#spot{display:none;}   /* زخارف تستهلك أداء الجوال بلا فائدة */
+  .scroll-hint{display:none;}
+
+  /* ── العناوين العامة ── */
+  .h2{font-size:26px;margin-bottom:26px;line-height:1.25;}
+  h2{font-size:26px;}
+
+  /* ── كل الشبكات تصير عمودًا واحدًا ── */
+  #about,.skill-grid,.pillars,.certs,.cert-wall,.proj-grid,
+  .dash-kpis,.dash-grid,.kpis,.field-row{grid-template-columns:1fr;}
+  #about{gap:30px;}
+  .skill-grid,.pillars,.cert-wall,.proj-grid{gap:16px;}
+  #about p{font-size:16px;line-height:1.85;}
+
+  /* ── رؤية 2030 ── */
+  #vision{padding:56px 20px;}
+  .vision-head h2{font-size:24px;}
+  .vision-head p{font-size:15px;}
+  .v2030{max-width:100%;}
+
+  /* ── الخبرة: الشعار أصغر والنص يأخذ العرض ── */
+  .tl-row{gap:14px;}
+  .logo-tile{width:52px;height:52px;}
+  .tl-body{padding-bottom:28px;}
+  .tl-bullet{font-size:14.5px;}
+
+  /* ── الشهادات ── */
+  .cred-shot{aspect-ratio:16/9;}
+  .cred-name{font-size:16px;}
+  .cred-org{font-size:13px;}
+  .cred-verify{padding:7px 12px;font-size:12.5px;}
+
+  /* ── المشاريع ── */
+  .pcard{padding:18px;}
+  .pcard h4{font-size:19px;}
+  .pcard p{font-size:14.5px;}
+  .pcard-stats{gap:14px;}
+  .pcard-stats b{font-size:18px;}
+  .pcard-stats i{font-size:11.5px;}
+  .pbtn{font-size:13.5px;padding:10px 14px;}   /* أكبر للّمس */
+  .proj-body{padding:22px 18px 24px;}
+
+  /* ── اللوحة الحيّة: الصفوف الضيقة تتكدّس ── */
+  .dash-top{padding:14px 16px;}
+  .dash-years{margin-inline-start:0;width:100%;overflow-x:auto;scrollbar-width:none;}
+  .dash-years::-webkit-scrollbar{display:none;}
+  .dash-years button{padding:8px 15px;font-size:13px;flex:none;}
+  .dash-kpi{padding:15px 16px;}
+  .dash-kpi b{font-size:23px;}
+  .panel{padding:16px;}
+  .hbar,.cbar,.bar-row{grid-template-columns:92px 1fr 56px;gap:9px;font-size:12.5px;}
+  .donut-wrap{flex-direction:column;align-items:flex-start;gap:16px;}
+  .cols{height:130px;gap:8px;}
+  .col span{font-size:10.5px;}
+  .dash-foot{padding:14px 16px;}
+
+  /* ── نموذج التواصل: حقول بارتفاع مريح، و16px يمنع تكبير iOS التلقائي ── */
+  .contact-form{max-width:100%;}
+  .input{font-size:16px;min-height:48px;}
+  .form-actions .btn{padding:13px 20px;font-size:15px;flex:1;justify-content:center;}
+  .contact-links{gap:18px;justify-content:center;}
+  .contact-links a{width:56px;height:56px;}
+
+  /* ── الشعارات والفوتر ── */
+  .orgs-row{gap:20px;}
+  .orgs-row img{height:38px;}
+  footer{padding:24px 20px 30px;}
+  .footer-row{justify-content:center;text-align:center;font-size:12.5px;}
+
+  /* ── عارض الصور بملء الشاشة ── */
+  #viewer{padding:12px;}
+  .viewer-panel{width:100%!important;height:auto!important;max-height:88vh;}
+  .viewer-head{height:auto;padding:10px;flex-wrap:wrap;}
+  .viewer-title{font-size:13px;white-space:normal;}
+  .vbtn{height:38px;min-width:38px;}
+
+  #toTop{inset-inline-end:16px;bottom:16px;width:48px;height:48px;}
+}
+
+/* الشاشات الضيقة جدًا (أقل من 380 بكسل) */
+@media (max-width:380px){
+  .wrap{padding:48px 16px;}
+  .hero h1{font-size:29px;}
+  html[lang="ar"] .hero h1{font-size:27px;}
+  .h2{font-size:23px;}
+  .pcard-stats{gap:10px;}
+  .pcard-stats b{font-size:16px;}
+}
