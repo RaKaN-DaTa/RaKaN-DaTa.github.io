@@ -11,7 +11,7 @@
 <meta property="og:description" content="Computer Science graduate (Al Jouf, 2025). Excel · SQL · Python. Google Data Analytics certified.">
 <meta property="og:image" content="img/photo.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="css/styles.css?v=15">
+<link rel="stylesheet" href="css/styles.css?v=16">
 </head>
 <body>
 
@@ -93,7 +93,8 @@
   </div>
 
   <div class="nav-actions">
-    <button class="icon-btn" id="themeBtn">
+    <button class="icon-btn" id="themeBtn" type="button"
+            aria-label="Switch between light and dark" title="Light / dark">
       <svg class="ico" id="themeIcon" aria-hidden="true"><use href="#i-moon"></use></svg>
     </button>
     <button class="icon-btn" id="langBtn">
@@ -676,12 +677,12 @@
 
   <form class="contact-form" id="mailForm">
     <div class="field-row">
-      <input class="input" id="mfName" required
+      <input class="input" id="mfName" required aria-label="Your name"
              data-ph-en="Your name" data-ph-ar="اسمك">
-      <input class="input" id="mfFrom" type="email" required
+      <input class="input" id="mfFrom" type="email" required aria-label="Your email"
              data-ph-en="Your email" data-ph-ar="بريدك">
     </div>
-    <textarea class="input" id="mfMsg" rows="3" required
+    <textarea class="input" id="mfMsg" rows="3" required aria-label="Your message"
               data-ph-en="What would you like to talk about?" data-ph-ar="عن ماذا تودّ الحديث؟"></textarea>
     <div class="form-actions">
       <button class="btn btn-primary" type="submit">
@@ -761,8 +762,8 @@
   </div>
 </div>
 
-<script src="js/dash-data.js?v=15"></script>
-<script src="js/main.js?v=15"></script>
-<script src="js/dashboard.js?v=15"></script>
+<script src="js/dash-data.js?v=16"></script>
+<script src="js/main.js?v=16"></script>
+<script src="js/dashboard.js?v=16"></script>
 </body>
 </html>

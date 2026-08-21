@@ -545,6 +545,8 @@ fitViewport();
 function applyPlaceholders(){
   document.querySelectorAll('[data-ph-en]').forEach(el=>{
     el.placeholder = lang === 'ar' ? el.dataset.phAr : el.dataset.phEn;
+    /* قارئ الشاشة يقرأ aria-label، فنبدّله مع اللغة أيضًا */
+    el.setAttribute('aria-label', el.placeholder);
   });
 }
 applyPlaceholders();
