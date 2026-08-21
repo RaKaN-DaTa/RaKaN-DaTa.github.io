@@ -1,0 +1,170 @@
+<section id="projects" class="wrap reveal">
+  <h6 class="kicker" data-en="Work" data-ar="أعمالي">Work</h6>
+  <h2 class="h2" style="margin-bottom:8px" data-en="Two real datasets, cleaned and turned into answers"
+      data-ar="مشروعان ببيانات حقيقية، نُظّفت وتحوّلت لإجابات">Two real datasets, cleaned and turned into answers</h2>
+  <p style="color:var(--color-neutral-400);font-size:14px;margin-bottom:30px"
+     data-en="Both are on GitHub with the raw data and the code — click a card for the full breakdown."
+     data-ar="كلا المشروعين على GitHub مع البيانات الخام والكود — اضغط بطاقة لعرض التفاصيل كاملة.">Both are on GitHub with the raw data and the code — click a card for the full breakdown.</p>
+
+  <!-- فهرس مصغّر للمشروعين (Project index) — بطاقتان مضغوطتان تفتحان على التفاصيل تحت -->
+  <div class="proj-tiles stagger">
+    <div class="proj-tile lift-hover">
+      <span class="tag tag-accent" data-en="Live dashboard" data-ar="لوحة حيّة">Live dashboard</span>
+      <div class="card-title" data-en="Bike Sales Analysis" data-ar="تحليل مبيعات الدرّاجات">Bike Sales Analysis</div>
+      <p class="card-body" data-en="60,919 orders — Excel, SQL, Python. Filter by year, watch every chart move."
+         data-ar="60,919 طلبًا — Excel وSQL وPython. بدّل السنة وشاهد كل رسم يتحرّك.">60,919 orders — Excel, SQL, Python. Filter by year, watch every chart move.</p>
+      <div class="proj-tile-actions">
+        <a href="#proj-bikes" class="btn btn-secondary mini">
+          <span data-en="Details" data-ar="التفاصيل">Details</span> ↓</a>
+        <button class="btn btn-secondary mini" data-go="https://github.com/RaKaN-DaTa/bike-sales-analysis">
+          <svg class="ico" aria-hidden="true"><use href="#i-link"></use></svg>GitHub</button>
+      </div>
+    </div>
+
+    <div class="proj-tile lift-hover">
+      <span class="tag tag-outline" data-en="SQL analysis" data-ar="تحليل SQL">SQL analysis</span>
+      <div class="card-title" data-en="Supply Chain Analysis" data-ar="تحليل سلسلة التوريد">Supply Chain Analysis</div>
+      <p class="card-body" data-en="5,000 orders across 3 suppliers — where delivery time and damage really come from."
+         data-ar="5,000 طلب عبر 3 موردين — من وين يجي فعليًا وقت التسليم والتلف.">5,000 orders across 3 suppliers — where delivery time and damage really come from.</p>
+      <div class="proj-tile-actions">
+        <a href="#proj-supply" class="btn btn-secondary mini">
+          <span data-en="Details" data-ar="التفاصيل">Details</span> ↓</a>
+        <button class="btn btn-secondary mini" data-go="https://github.com/RaKaN-DaTa/supply-chain-analysis">
+          <svg class="ico" aria-hidden="true"><use href="#i-link"></use></svg>GitHub</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── تفاصيل مشروع الدرّاجات (Bike Sales detail) ─────────── -->
+  <h3 id="proj-bikes" class="proj-detail-title" data-en="Bike Sales — full breakdown" data-ar="مبيعات الدرّاجات — التفاصيل كاملة">Bike Sales — full breakdown</h3>
+
+  <div class="dash">
+    <div class="dash-top">
+      <div class="dash-title">
+        <span class="dash-live"></span>
+        <b data-en="Sales performance" data-ar="أداء المبيعات">Sales performance</b>
+        <span class="dash-sub" id="dashScope"></span>
+      </div>
+      <div class="dash-years" id="dashYears"></div>
+    </div>
+
+    <div class="dash-kpis" id="dashKpis"></div>
+
+    <div class="dash-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <b data-en="Revenue by category" data-ar="الإيراد بحسب الفئة">Revenue by category</b>
+        </div>
+        <div class="hbars" id="dashCat"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <b data-en="Share by region" data-ar="الحصة بحسب المنطقة">Share by region</b>
+        </div>
+        <div class="donut-wrap">
+          <svg class="donut" viewBox="0 0 120 120" id="dashDonut" aria-hidden="true"></svg>
+          <div class="legend" id="dashLegend"></div>
+        </div>
+      </div>
+
+      <div class="panel panel-wide">
+        <div class="panel-head">
+          <b data-en="Revenue by colour" data-ar="الإيراد بحسب اللون">Revenue by colour</b>
+        </div>
+        <div class="cols" id="dashCols"></div>
+      </div>
+    </div>
+
+    <div class="dash-foot">
+      <button class="btn btn-secondary mini" data-view="docs/sales-dashboard.jpg"
+              data-title-en="The Excel dashboard I rebuilt" data-title-ar="لوحة Excel التي أعدت بناءها">
+        <svg class="ico" aria-hidden="true"><use href="#i-expand"></use></svg>
+        <span data-en="See the Excel dashboard" data-ar="شاهد لوحة Excel">See the Excel dashboard</span>
+      </button>
+      <button class="btn btn-secondary mini" data-go="docs/sales-dashboard.xlsx">
+        <svg class="ico" aria-hidden="true"><use href="#i-excel"></use></svg>
+        <span data-en="Download the workbook" data-ar="تحميل ملف Excel">Download the workbook</span>
+      </button>
+    </div>
+  </div>
+
+  <ol class="story">
+    <li><span class="story-n">1</span>
+      <b data-en="The question" data-ar="السؤال">The question</b>
+      <span data-en="Where does the revenue actually come from — and where is it missing?"
+            data-ar="من أين يأتي الإيراد فعلًا — وأين يغيب؟">Where does the revenue actually come from — and where is it missing?</span></li>
+    <li><span class="story-n">2</span>
+      <b data-en="What I did" data-ar="ما فعلته">What I did</b>
+      <span data-en="Cleaned 60,919 rows, built pivot models in Excel, then loaded them into SQL and queried them."
+            data-ar="نظّفت 60,919 صفًا، وبنيت الجداول المحورية في Excel، ثم حمّلتها في SQL واستعلمت عنها.">Cleaned 60,919 rows, built pivot models in Excel, then loaded them into SQL and queried them.</span></li>
+    <li><span class="story-n">3</span>
+      <b data-en="What I found" data-ar="ما وجدته">What I found</b>
+      <span data-en="Bikes carry 83% of revenue and North America 84% — growth rests on two narrow bets."
+            data-ar="الدرّاجات تحمل 83% من الإيراد وأمريكا الشمالية 84% — النمو معلّق على رهانين ضيّقين.">Bikes carry 83% of revenue and North America 84% — growth rests on two narrow bets.</span></li>
+  </ol>
+
+  <!-- ─────────── تفاصيل مشروع سلسلة التوريد (Supply Chain detail) — أرقام ثابتة، بلا JS ─────────── -->
+  <h3 id="proj-supply" class="proj-detail-title" data-en="Supply Chain Analysis — full breakdown" data-ar="تحليل سلسلة التوريد — التفاصيل كاملة">Supply Chain Analysis — full breakdown</h3>
+
+  <div class="dash">
+    <div class="dash-top">
+      <div class="dash-title">
+        <b data-en="Supply chain performance" data-ar="أداء سلسلة التوريد">Supply chain performance</b>
+        <span class="dash-sub" data-en="2021 · 5,000 orders · 3 suppliers" data-ar="2021 · 5,000 طلب · 3 موردين">2021 · 5,000 orders · 3 suppliers</span>
+      </div>
+    </div>
+
+    <div class="dash-kpis">
+      <div class="dash-kpi"><b>80.3%</b><span data-en="On-time delivery" data-ar="تسليم في الموعد">On-time delivery</span></div>
+      <div class="dash-kpi"><b>$100.14</b><span data-en="Avg freight cost" data-ar="متوسط تكلفة الشحن">Avg freight cost</span></div>
+      <div class="dash-kpi"><b>3.61%</b><span data-en="Damage rate" data-ar="نسبة التلف">Damage rate</span></div>
+      <div class="dash-kpi"><b>1.63%</b><span data-en="Return rate" data-ar="نسبة الإرجاع">Return rate</span></div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <b data-en="On-time vs. late" data-ar="في الموعد مقابل متأخّر">On-time vs. late</b>
+        </div>
+        <div class="hbars">
+          <div class="hbar"><span data-en="On time" data-ar="في الموعد">On time</span><i style="--w:80.3%"></i><b>80.3%</b></div>
+          <div class="hbar"><span data-en="Late" data-ar="متأخّر">Late</span><i style="--w:19.7%"></i><b>19.7%</b></div>
+        </div>
+      </div>
+
+      <div class="panel panel-wide">
+        <div class="panel-head">
+          <b data-en="Damage rate by supplier" data-ar="نسبة التلف حسب المورّد">Damage rate by supplier</b>
+        </div>
+        <div class="hbars">
+          <div class="hbar"><span>AG group</span><i style="--w:94%"></i><b>3.50%</b></div>
+          <div class="hbar"><span>H7L group</span><i style="--w:97%"></i><b>3.62%</b></div>
+          <div class="hbar"><span>Star group</span><i style="--w:100%"></i><b>3.72%</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-foot">
+      <button class="btn btn-secondary mini" data-go="https://github.com/RaKaN-DaTa/supply-chain-analysis">
+        <svg class="ico" aria-hidden="true"><use href="#i-link"></use></svg>
+        <span data-en="View the SQL and full data on GitHub" data-ar="شاهد استعلامات SQL والبيانات كاملة على GitHub">View the SQL and full data on GitHub</span>
+      </button>
+    </div>
+  </div>
+
+  <ol class="story">
+    <li><span class="story-n">1</span>
+      <b data-en="The question" data-ar="السؤال">The question</b>
+      <span data-en="Where in the supply chain are we losing time and money — late orders, damage, or a specific supplier?"
+            data-ar="من وين سلسلة التوريد تخسر وقت وفلوس — التأخير، التلف، أو مورّد معيّن؟">Where in the supply chain are we losing time and money — late orders, damage, or a specific supplier?</span></li>
+    <li><span class="story-n">2</span>
+      <b data-en="What I did" data-ar="ما فعلته">What I did</b>
+      <span data-en="Cleaned and modelled 3 raw tables into SQLite with a Python ETL script, then wrote SQL to compare suppliers."
+            data-ar="نظّفت ونمذجت 3 جداول خام في SQLite بسكربت Python، ثم كتبت SQL أقارن فيه بين الموردين.">Cleaned and modelled 3 raw tables into SQLite with a Python ETL script, then wrote SQL to compare suppliers.</span></li>
+    <li><span class="story-n">3</span>
+      <b data-en="What I found" data-ar="ما وجدته">What I found</b>
+      <span data-en="All 3 suppliers share the same 4-day lead time, but damage rate still varies from 3.5% to 3.72% between them."
+            data-ar="الموردون الثلاثة يتشاركون مهلة توريد 4 أيام، لكن نسبة التلف تختلف من 3.5% إلى 3.72% بينهم.">All 3 suppliers share the same 4-day lead time, but damage rate still varies from 3.5% to 3.72% between them.</span></li>
+  </ol>
+</section>
