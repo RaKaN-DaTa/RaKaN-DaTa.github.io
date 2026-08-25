@@ -258,39 +258,43 @@ nav.scrolled{background:color-mix(in srgb,var(--color-bg) 88%,transparent);}
   padding:11px 18px;border-radius:99px;border:1px solid var(--color-divider);
   background:var(--color-surface);color:var(--color-neutral-300);
   font:inherit;font-size:13px;cursor:pointer;overflow:hidden;
-  transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);}
-.skill-tab .ico{font-size:15px;}
-.skill-tab:hover{border-color:var(--color-accent-700);color:var(--color-text);}
-.skill-tab.active{background:var(--color-accent-800);border-color:var(--color-accent-700);
-  color:var(--color-accent-100);animation:skillTabPop .5s var(--ease);}
-.skill-tab-bar{position:absolute;bottom:0;inset-inline-start:0;height:2px;width:0;
-  background:var(--color-accent-300);}
+  transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),transform .2s var(--ease);}
+.skill-tab .ico{font-size:15px;transition:transform .3s var(--ease);}
+.skill-tab:hover{border-color:var(--color-accent-700);color:var(--color-text);transform:translateY(-2px);}
+.skill-tab.active{background:var(--color-accent-300);border-color:var(--color-accent-300);
+  color:var(--color-accent-900);font-weight:600;animation:skillTabPop .55s var(--ease);}
+.skill-tab.active .ico{transform:scale(1.15);}
+.skill-tab-bar{position:absolute;bottom:0;inset-inline-start:0;height:3px;width:0;
+  background:var(--color-accent-900);opacity:.55;}
 .skill-tab.active .skill-tab-bar{animation:skillProgress 4s linear;}
-@keyframes skillTabPop{0%{transform:scale(.94);}45%{transform:scale(1.035);}100%{transform:scale(1);}}
+@keyframes skillTabPop{0%{transform:scale(.85) translateY(4px);}55%{transform:scale(1.08) translateY(-3px);}100%{transform:scale(1) translateY(0);}}
 
 .skill-panels{position:relative;min-height:184px;background:var(--color-surface);
-  border:1px solid var(--color-divider);border-radius:var(--radius-lg);
-  transition:border-color .4s var(--ease),box-shadow .4s var(--ease);}
-.skill-panels:has(.skill-panel.active){border-color:var(--color-accent-700);box-shadow:var(--shadow-sm);}
+  border:1.5px solid var(--color-accent-700);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-md);overflow:hidden;}
+.skill-panels::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,var(--color-accent-300),var(--color-accent-700),var(--color-accent-300));}
 .skill-panel{position:absolute;inset:0;opacity:0;pointer-events:none;padding:32px 34px;
-  transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease);}
+  transform:translateY(18px) scale(.97);
+  transition:opacity .45s var(--ease),transform .45s var(--ease);}
 .skill-panel.active{opacity:1;pointer-events:auto;transform:none;}
 .skill-panel-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
-.skill-panel-head .ico{font-size:22px;color:var(--color-accent-300);
-  transition:transform .4s var(--ease);}
-.skill-panel.active .skill-panel-head .ico{animation:skillIconPop .5s var(--ease) .05s backwards;}
-@keyframes skillIconPop{0%{transform:scale(.5) rotate(-8deg);opacity:0;}
-  60%{transform:scale(1.15) rotate(3deg);opacity:1;}100%{transform:scale(1) rotate(0);}}
-.skill-panel-head span{font-family:var(--font-heading);font-size:19px;color:var(--color-text);}
+.skill-panel-head .ico{font-size:24px;color:var(--color-accent-300);}
+.skill-panel.active .skill-panel-head .ico{animation:skillIconPop .6s var(--ease) .08s backwards;}
+@keyframes skillIconPop{0%{transform:scale(.3) rotate(-20deg);opacity:0;}
+  55%{transform:scale(1.25) rotate(6deg);opacity:1;}100%{transform:scale(1) rotate(0);}}
+.skill-panel-head span{font-family:var(--font-heading);font-weight:600;font-size:20px;color:var(--color-text);}
 .skill-panel .skill-tags{display:flex;flex-wrap:wrap;gap:10px;}
 .skill-panel .skill-tags .tag{opacity:0;}
-.skill-panel.active .skill-tags .tag{animation:swapIn .45s var(--ease) both;}
-.skill-panel.active .skill-tags .tag:nth-child(1){animation-delay:.06s;}
-.skill-panel.active .skill-tags .tag:nth-child(2){animation-delay:.11s;}
-.skill-panel.active .skill-tags .tag:nth-child(3){animation-delay:.16s;}
-.skill-panel.active .skill-tags .tag:nth-child(4){animation-delay:.21s;}
-.skill-panel.active .skill-tags .tag:nth-child(5){animation-delay:.26s;}
-.skill-panel.active .skill-tags .tag:nth-child(6){animation-delay:.31s;}
+.skill-panel.active .skill-tags .tag{animation:skillTagIn .5s var(--ease) both;}
+.skill-panel.active .skill-tags .tag:nth-child(1){animation-delay:.10s;}
+.skill-panel.active .skill-tags .tag:nth-child(2){animation-delay:.17s;}
+.skill-panel.active .skill-tags .tag:nth-child(3){animation-delay:.24s;}
+.skill-panel.active .skill-tags .tag:nth-child(4){animation-delay:.31s;}
+.skill-panel.active .skill-tags .tag:nth-child(5){animation-delay:.38s;}
+.skill-panel.active .skill-tags .tag:nth-child(6){animation-delay:.45s;}
+@keyframes skillTagIn{0%{opacity:0;transform:translateY(14px) scale(.85);}
+  65%{opacity:1;transform:translateY(-2px) scale(1.04);}100%{opacity:1;transform:none;}}
 .skill-panel .skill-tags .tag{font-size:13.5px;padding:7px 16px;}
 
 
