@@ -260,7 +260,7 @@ nav.scrolled{background:color-mix(in srgb,var(--color-bg) 88%,transparent);}
 /* داخل بطاقات المهارات فقط: شبكة منتظمة عمودين بدل التفاف عشوائي،
    حتى تصطف الوسوم بخط واحد — لا تمس وسوم الخبرة العملية بنفس الكلاس */
 .skill-card .skill-tags{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;}
-.skill-card .skill-tags .tag{justify-content:center;text-align:center;font-size:12px;padding:5px 10px;}
+.skill-card .skill-tags .tag{justify-content:center;text-align:center;font-size:14px;padding:6px 12px;}
 .skill-card .skill-tags .tag:last-child:nth-child(odd){grid-column:1/-1;}
 
 
@@ -891,7 +891,7 @@ html[data-theme="light"] .pcard{--pc:var(--pc-light);}
   .skill-card .card-title{font-size:12.5px!important;line-height:1.3;}
   .skill-tags{gap:6px!important;}
   .skill-tags .tag{font-size:9.5px;padding:3px 7px;}
-  .skill-card .skill-tags .tag{font-size:10.5px;padding:4px 8px;}
+  .skill-card .skill-tags .tag{font-size:12.5px;padding:5px 9px;}
 
   /* الشهادة محتواها صورة واسم فتتحمّل ثلاثة أعمدة */
   .cert-wall{grid-template-columns:repeat(3,1fr);gap:8px;}
