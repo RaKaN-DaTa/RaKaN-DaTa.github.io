@@ -533,6 +533,30 @@ function tickClock(){
 tickClock();
 setInterval(tickClock, 1000);   /* keep calling it every second, forever */
 
+/* ═══════════════ تبويبات المهارات — تتبدّل بالنقر أو تلقائيًا كل 4 ثواني ═══════════════ */
+(function(){
+  const tabs = document.querySelectorAll('.skill-tab');
+  const panels = document.querySelectorAll('.skill-panel');
+  if (!tabs.length) return;
+  let current = 0, timer;
+  function activate(i){
+    current = i;
+    tabs.forEach((t,idx)=>{
+      const on = idx === i;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach((p,idx)=> p.classList.toggle('active', idx === i));
+  }
+  function startAuto(){
+    clearInterval(timer);
+    timer = setInterval(()=> activate((current + 1) % tabs.length), 4000);
+  }
+  tabs.forEach((t,idx)=> t.addEventListener('click', ()=>{ activate(idx); startAuto(); }));
+  activate(0);
+  startAuto();
+})();
+
 /* ═══════════════ STARTUP — تشغيل الصفحة أول ما تفتح ═══════════════
    The four lines that actually kick everything off when the page loads. */
 applyLang(false);
