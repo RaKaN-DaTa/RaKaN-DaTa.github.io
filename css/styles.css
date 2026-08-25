@@ -249,13 +249,18 @@ nav.scrolled{background:color-mix(in srgb,var(--color-bg) 88%,transparent);}
 
 /* ═══════════ المهارات (Skills grid) ═══════════ */
 .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+/* البطاقة الأخيرة إذا بقيت لحالها بالصف تاخذ العرض كامل بدل ما تترك فراغ جنبها */
+.skill-grid .skill-card:last-child{grid-column:1/-1;}
 .skill-card{padding:32px 26px;display:flex;flex-direction:column;justify-content:center;}
 .skill-head{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
 .skill-head .ico{font-size:19px;color:var(--color-accent-300);}
 .skill-card .card-title{font-size:15px!important;}
 .skill-tags{gap:9px!important;}
 .skill-tags .tag{font-size:11px;padding:3.5px 10px;}
-.skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
+/* شبكة منتظمة عمودين بدل التفاف عشوائي، حتى تصطف كل الوسوم بخط واحد */
+.skill-tags{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.skill-tags .tag{justify-content:center;text-align:center;}
+.skill-tags .tag:last-child:nth-child(odd){grid-column:1/-1;}
 
 
 /* ═══════════ الخبرة (Experience timeline) — the logo + line + text rows ═══════════ */
