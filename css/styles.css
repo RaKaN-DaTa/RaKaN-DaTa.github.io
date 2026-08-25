@@ -248,10 +248,13 @@ nav.scrolled{background:color-mix(in srgb,var(--color-bg) 88%,transparent);}
 
 
 /* ═══════════ المهارات (Skills grid) ═══════════ */
-.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.skill-card{padding:22px;}
-.skill-head{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.skill-head .ico{font-size:20px;color:var(--color-accent-300);}
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.skill-card{padding:17px 18px;}
+.skill-head{display:flex;align-items:center;gap:9px;margin-bottom:13px;}
+.skill-head .ico{font-size:17px;color:var(--color-accent-300);}
+.skill-card .card-title{font-size:14px!important;}
+.skill-tags{gap:7px!important;}
+.skill-tags .tag{font-size:10.5px;padding:2.5px 8px;}
 .skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
 
 
