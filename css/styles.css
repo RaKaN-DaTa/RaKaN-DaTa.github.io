@@ -873,11 +873,18 @@ html[data-theme="light"] .pcard{--pc:var(--pc-light);}
   .h2{font-size:26px;margin-bottom:26px;line-height:1.25;}
   h2{font-size:26px;}
 
-  /* ── كل الشبكات تصير عمودًا واحدًا ── */
-  #about,.skill-grid,.pillars,.certs,
+  /* ── كل الشبكات تصير عمودًا واحدًا (ما عدا المهارات: تبقى عمودين) ── */
+  #about,.pillars,.certs,
   .dash-kpis,.dash-grid,.kpis,.field-row{grid-template-columns:1fr;}
   #about{gap:30px;}
-  .skill-grid,.pillars{gap:16px;}
+  .skill-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .pillars{gap:16px;}
+  .skill-card{padding:16px 12px;}
+  .skill-head{gap:7px;margin-bottom:10px;}
+  .skill-head .ico{font-size:16px;}
+  .skill-card .card-title{font-size:12.5px!important;line-height:1.3;}
+  .skill-tags{gap:6px!important;}
+  .skill-tags .tag{font-size:9.5px;padding:3px 7px;}
 
   /* الشهادة محتواها صورة واسم فتتحمّل ثلاثة أعمدة */
   .cert-wall{grid-template-columns:repeat(3,1fr);gap:8px;}
