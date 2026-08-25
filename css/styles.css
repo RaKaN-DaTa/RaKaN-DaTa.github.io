@@ -848,9 +848,12 @@ html[data-theme="light"] .pcard{--pc:var(--pc-light);}
   .nav-actions{margin-inline-start:auto;gap:8px;}
   .icon-btn{width:42px;height:42px;}     /* مساحة لمس مريحة */
   .peek{display:none!important;}         /* المعاينة بالتحويم لا معنى لها باللمس */
+  /* زر السيرة موجود مرتين: في الشريط وفي الواجهة. على الجوال يظهران
+     فوق بعض، فنُبقي زر الواجهة الأوضح ونخفي نسخة الشريط. */
+  .nav-actions .peek-host{display:none;}
 
   /* ── الواجهة: الصورة فوق والنص تحت ── */
-  #top{min-height:auto;padding:150px 20px 60px;}
+  #top{min-height:auto;padding:186px 20px 60px;}
   .hero-grid{grid-template-columns:1fr;gap:32px;text-align:center;}
   .photo-wrap{order:-1;}                 /* الصورة أولًا على الجوال */
   .photo-ring,.photo-ring img{width:170px;height:170px;}
@@ -868,10 +871,35 @@ html[data-theme="light"] .pcard{--pc:var(--pc-light);}
   h2{font-size:26px;}
 
   /* ── كل الشبكات تصير عمودًا واحدًا ── */
-  #about,.skill-grid,.pillars,.certs,.cert-wall,.proj-grid,
+  #about,.skill-grid,.pillars,.certs,
   .dash-kpis,.dash-grid,.kpis,.field-row{grid-template-columns:1fr;}
   #about{gap:30px;}
-  .skill-grid,.pillars,.cert-wall,.proj-grid{gap:16px;}
+  .skill-grid,.pillars{gap:16px;}
+
+  /* الشهادة محتواها صورة واسم فتتحمّل ثلاثة أعمدة */
+  .cert-wall{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .cred-info{padding:8px 9px 10px;gap:3px;}
+  .cred-name{font-size:11px;line-height:1.35;}
+  .cred-org{font-size:9.5px;}
+  .cred-foot{margin-top:5px;gap:5px;flex-wrap:wrap;}
+  .cred-date{font-size:9.5px;}
+  .chip{font-size:9px;padding:2px 7px;}
+  .cred-verify{display:none;}          /* لا مكان له في عمود ضيّق */
+  .cred-open{display:none;}            /* يظهر بالتحويم فقط */
+
+  /* المشروع فيه أرقام وأزرار فيبقى عمودين */
+  .proj-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .pcard{padding:14px 13px 13px;}
+  .pcard h4{font-size:14px;}
+  .pcard p{font-size:11.5px;line-height:1.55;margin-bottom:12px;}
+  .pcard-kind{font-size:9.5px;}
+  html[lang="ar"] .pcard-kind{font-size:10px;}
+  .pcard-badge{font-size:9px;padding:2px 7px;}
+  .pcard-stats{gap:9px;padding:9px 0;margin-bottom:11px;}
+  .pcard-stats b{font-size:12.5px;}
+  .pcard-stats i{font-size:9px;}
+  .pcard-actions{gap:6px;flex-direction:column;}
+  .pbtn{font-size:11px;padding:8px 10px;justify-content:center;width:100%;}
   #about p{font-size:16px;line-height:1.85;}
 
   /* ── رؤية 2030 ── */

@@ -198,7 +198,9 @@ function fitViewport(){
   if (w <= MOBILE_MAX){
     PAGE_ZOOM = 1;
   } else {
-    PAGE_ZOOM = Math.min(1, w / 1180);
+    /* التصغير للأجهزة المتوسطة فقط؛ الجوال له تخطيط خاص في CSS
+     فلو صغّرناه أيضًا لصار الخط مجهريًا. */
+  PAGE_ZOOM = w <= 900 ? 1 : Math.min(1, w / 1180);
     if (PAGE_ZOOM !== 1) el.style.zoom = PAGE_ZOOM;
   }
   fitPanel();
