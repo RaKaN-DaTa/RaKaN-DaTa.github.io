@@ -9,10 +9,13 @@
    ويقرر يطلع الإنجليزي ولا العربي، ومتى، وبأي حركة.
    ═══════════════════════════════════════════════════════════════════════ */
 
-/* Remember the user's last choice (language + theme) even after closing the tab.
-   يتذكر آخر اختيار للزائر (اللغة والثيم) حتى لو سكّر المتصفح ورجع تاني. */
-let lang  = localStorage.getItem('rk-lang')  || 'en';
+/* اللغة تبدأ إنجليزي دائمًا في كل فتحة للصفحة — الاختيار لا يُحفَظ،
+   عشان أي زائر (وأي جهاز فيه اختيار قديم محفوظ) يشوف الموقع إنجليزي.
+   Language always starts in English on every load; the choice is not persisted.
+   الثيم فقط هو اللي يتذكره المتصفح. */
+let lang  = 'en';
 let theme = localStorage.getItem('rk-theme') || 'dark';
+localStorage.removeItem('rk-lang');   /* ينظّف أي اختيار لغة محفوظ من نسخة سابقة */
 
 /* ═══════════════ JOB DURATION — auto-updates itself / مدة الوظيفة ═══════════════
    Instead of typing "11 months" by hand (which goes stale next month), this
@@ -97,11 +100,10 @@ function applyTheme(){
     .setAttribute('href', theme === 'dark' ? '#i-moon' : '#i-sun');
 }
 
-/* When the language button is clicked: flip the language, save the choice,
-   spin the icon, then repaint everything. */
+/* When the language button is clicked: flip the language for this visit only
+   (لا يُحفظ — الصفحة ترجع إنجليزي عند إعادة الفتح)، spin the icon, then repaint. */
 document.getElementById('langBtn').addEventListener('click', e=>{
   lang = lang === 'ar' ? 'en' : 'ar';
-  localStorage.setItem('rk-lang', lang);
   const b = e.currentTarget;              /* saved because e.currentTarget becomes null after the click ends */
   b.classList.add('spin');
   setTimeout(()=>b.classList.remove('spin'), 460);
