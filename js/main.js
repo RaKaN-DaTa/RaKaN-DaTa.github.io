@@ -11,7 +11,7 @@
 
 /* Remember the user's last choice (language + theme) even after closing the tab.
    يتذكر آخر اختيار للزائر (اللغة والثيم) حتى لو سكّر المتصفح ورجع تاني. */
-let lang  = localStorage.getItem('rk-lang')  || 'ar';
+let lang  = localStorage.getItem('rk-lang')  || 'en';
 let theme = localStorage.getItem('rk-theme') || 'dark';
 
 /* ═══════════════ JOB DURATION — auto-updates itself / مدة الوظيفة ═══════════════
